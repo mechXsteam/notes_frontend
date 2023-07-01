@@ -9,13 +9,13 @@ export default function NotePage() {
         if (id === 'new') {
             return
         }
-        fetch(`/api/notes/${id}`)
+        fetch(`https://djnotes.up.railway.app/api/notes/${id}`)
             .then(res => res.json())
             .then(data => setNote(data))
     }, [id])
 
     function updateNote() {
-        fetch(`/api/notes/${id}/update`, {
+        fetch(`https://djnotes.up.railway.app/api/notes/${id}/update`, {
             method: "PUT",
             headers: {
                 'Content-Type': 'application/json'
@@ -33,7 +33,7 @@ export default function NotePage() {
     }
 
     function deleteNote() {
-        fetch(`/api/notes/${id}/delete`, {
+        fetch(`https://djnotes.up.railway.app/api/notes/${id}/delete`, {
             method: "DELETE",
             headers: {
                 'Content-Type': 'application/json'
@@ -42,7 +42,7 @@ export default function NotePage() {
     }
 
     function createNote() {
-        fetch(`/api/notes/create`, {
+        fetch(`https://djnotes.up.railway.app/api/notes/create`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

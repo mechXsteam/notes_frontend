@@ -8,7 +8,7 @@ import AddButton from "../components/AddButton";
 export default function NoteListPage() {
     const [notes, setNotes] = useState([])
     useEffect(() => {
-        fetch(`/api/notes/`)
+        fetch(`https://djnotes.up.railway.app/api/notes/`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -24,7 +24,7 @@ export default function NoteListPage() {
         <div className={"notes-list"}>
             {notes.map((note) => {
                 return <Link to={`
-        note /${note.id}`}><ListItem key={note.id} note={note}/></Link>
+        note /${note.id}`} key={note.id}><ListItem key={note.id} note={note}/></Link>
             })}
         </div>
         <AddButton/>
