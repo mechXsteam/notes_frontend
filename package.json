@@ -1,6 +1,6 @@
 {
   "name": "notes_frontend",
-  "proxy": "https://djnotes.up.railway.app/",
+  "proxy": "https://djnotes.up.railway.app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
