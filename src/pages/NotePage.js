@@ -2,8 +2,6 @@ import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {ReactComponent as Arrow} from "../assets/arrow-left.svg";
 
-import baseUrl from '../url'
-
 export default function NotePage() {
     const {id} = useParams()
     const [note, setNote] = useState("")
@@ -11,13 +9,13 @@ export default function NotePage() {
         if (id === 'new') {
             return
         }
-        fetch(`${baseUrl}/${id}`)
+        fetch(`/api/notes/${id}`)
             .then(res => res.json())
             .then(data => setNote(data))
     }, [id])
 
     function updateNote() {
-        fetch(`${baseUrl}/${id}/update`, {
+        fetch(`/api/notes/${id}/update`, {
             method: "PUT",
             headers: {
                 'Content-Type': 'application/json'
@@ -35,7 +33,7 @@ export default function NotePage() {
     }
 
     function deleteNote() {
-        fetch(`${baseUrl}/${id}/delete`, {
+        fetch(`/api/notes/${id}/delete`, {
             method: "DELETE",
             headers: {
                 'Content-Type': 'application/json'
@@ -44,7 +42,7 @@ export default function NotePage() {
     }
 
     function createNote() {
-        fetch(`${baseUrl}/create`, {
+        fetch(`/api/notes/create`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

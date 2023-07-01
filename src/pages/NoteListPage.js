@@ -3,14 +3,12 @@ import {Link} from "react-router-dom";
 import ListItem from "../components/ListItem";
 import AddButton from "../components/AddButton";
 
-import baseUrl from '../url'
-console.log(baseUrl)
 
 
 export default function NoteListPage() {
     const [notes, setNotes] = useState([])
     useEffect(() => {
-        fetch(baseUrl)
+        fetch(`/api/notes/`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -25,7 +23,8 @@ export default function NoteListPage() {
         </div>
         <div className={"notes-list"}>
             {notes.map((note) => {
-                return <Link to={`note/${note.id}`}><ListItem key={note.id} note={note}/></Link>
+                return <Link to={`
+        note /${note.id}`}><ListItem key={note.id} note={note}/></Link>
             })}
         </div>
         <AddButton/>
